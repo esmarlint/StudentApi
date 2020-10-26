@@ -2,8 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { body, validationResult } = require('express-validator');
 const { Student } = require('./models');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -120,4 +123,6 @@ app.delete('/api/v1/students/:id', (request, response) => {
     });
 });
 
-app.listen(3003);
+app.listen(3003, () => {
+    console.log('App running on port 3003');
+});
