@@ -5,7 +5,9 @@ const { Student } = require('./models');
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 const validatorCreateStudent = [
     body('firstName')
